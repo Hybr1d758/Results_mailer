@@ -5,7 +5,7 @@ from email.mime.base import MIMEBase
 from email import encoders
 
 # Email configuration
-SMTP_SERVER = "smtp.gmail.com"  # For Gmail
+SMTP_SERVER = "smtp.gmail.com" 
 SMTP_PORT = 587
 EMAIL_ADDRESS = "your_email@gmail.com"
 EMAIL_PASSWORD = "your_password"
