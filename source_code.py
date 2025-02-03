@@ -1,3 +1,4 @@
+import os 
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -44,6 +45,14 @@ def send_email(recipient_email, recipient_name, pdf_path):
         print(f"Email sent to {recipient_name} ({recipient_email})")
     except Exception as e:
         print(f"Failed to send email to {recipient_email}: {e}")
+
+import pandas as pd
+
+# Load your data into a DataFrame
+data = pd.read_excel('/Users/edwardjr/Documents/Data Science/Data Analysis/Results_mailer /bio_data.xlsx')
+
+# Define the folder where PDFs are stored
+pdf_folder = '/path/to/pdf/folder'
 
 # Iterate through the data and send emails
 for index, row in data.iterrows():

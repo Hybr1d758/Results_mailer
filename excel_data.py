@@ -1,8 +1,18 @@
 import pandas as pd
+from faker import Faker
 
-# Load the Excel file
-file_path = "customers.xlsx"
-data = pd.read_excel(file_path)
+def generate_excel(filename="bio_data.xlsx", num_entries=100):
+    fake = Faker()
+    
+    data = {
+        "Name": [fake.name() for _ in range(num_entries)],
+        "Email": [fake.email() for _ in range(num_entries)]
+    }
+    
+    df = pd.DataFrame(data)
+    df.to_excel(filename, index=False)
+    print(f"Excel file '{filename}' generated successfully with {num_entries} entries.")
 
-# Example structure: ['Name', 'Email', 'Result_ID']
-print(data.head())
+if __name__ == "__main__":
+    generate_excel()
+
